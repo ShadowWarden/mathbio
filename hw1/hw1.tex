@@ -260,8 +260,18 @@ from the left of the complex plane to the right ($i\beta r^{2}\tau$), so you can
 expect to see Hopf bifurcations.
 
 \section{More delay differential equations}
+The given equation is the following:
+$$ \dot{x} = -ax(t)-bx(t-\tau) $$
+Let us define a new function $y = x-x^{*}$. Thus,
+$$ \dot{y} = -ay(t)-by(t-\tau)-C$$
 \subsection*{a: Unstable equilibrium}
-This equation is 
+First, let us linearize the equation around a fixed point of $x(t)$, $x^{*}$. 
+$$ \frac{dy}{dt} = \frac{\partial g(y(t),y(t+\tau))}{\partial (t+\tau)}y(t+\tau)$$
+This gives us the following:
+$$ \frac{dy}{dt} = -by(t-\tau)$$
+Now, guess that the solution is $y(t)=\exp(\lambda t)$. Doing this yeilds the following:
+$$ \lambda = -b\exp(\lambda \tau)$$
+Now, guess that $\lambda = i\beta$.
 
 
 \end{document}

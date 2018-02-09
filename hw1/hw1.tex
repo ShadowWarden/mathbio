@@ -271,7 +271,32 @@ This gives us the following:
 $$ \frac{dy}{dt} = -by(t-\tau)$$
 Now, guess that the solution is $y(t)=\exp(\lambda t)$. Doing this yeilds the following:
 $$ \lambda = -b\exp(\lambda \tau)$$
-Now, guess that $\lambda = i\beta$.
+Now, guess that $\lambda = i\beta$. Looking at the derivative wrt $\tau$, we get
+the following:
+$$ \frac{d\lambda}{d\tau} = frac{b\lambda\exp(-\lambda\tau)}{1-b\tau\exp(-\lambda\tau)}$$
+Substituting $\lambda = i\beta$, we have
+$$ \left[\frac{d\lambda}{d\tau}\right]^{-1} = frac{1-b\tau\exp(-\lambda\tau)}{b\lambda\exp(-\lambda\tau)}$$
+$$ = \frac{1}{b\lambda\exp(-\lambda\tau)}-\frac{\tau}{\lambda}$$
+$$ = \frac{1}{ib\beta\exp(-i\beta\tau)}+\frac{i\tau}{\lambda}$$
+Since $\exp(-i\beta\tau) \sim -i\beta$, the derivative goes as $ \frac{1}{\beta^{2}b} > 0$.
+In addition, the complex term rotates with tau, thus passing from the left to
+the right in the complex plane. 
+Thus, the system is likely to show Hopf bifurcations and instabilities.
+
+\subsection*{b: Solve using \lstinline{lambertw}}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.45\textwidth]{plots/problem6.png}
+	\caption{Plot of the dominant root obtained from the Lambertw function in scipy as a function of $\tau$}
+	\label{fig:problem6}
+\end{figure}
+
+First, we need to get the $\lambda$ equation to the form $\lambda = w\exp(w)$.
+Thus, we have
+$$ \lambda\tau\exp(\lambda \tau) = -b\tau$$
+Where, $w = \lambda\tau$. By computing $\lambda\tau$ using the Lambert-W function in,
+the dominant root was found to be greater than $1$ when $\tau > 2.7$, which reprasents
+the advent of instability.
 
 
 \end{document}
